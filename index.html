@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Industrial Design Portfolio</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind CSS Config -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              'frank-ruhl': ['"Frank Ruhl Libre"', 'serif']
+            },
+            keyframes: {
+              fadeInDown: {
+                '0%': { opacity: '0', transform: 'translateY(-40px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' }
+              },
+              fadeInUp: {
+                '0%': { opacity: '0', transform: 'translateY(40px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' }
+              },
+              blurIn: {
+                '0%': { opacity: '0', filter: 'blur(10px)', transform: 'translateX(-40px)' },
+                '100%': { opacity: '1', filter: 'blur(0)', transform: 'translateX(0)' }
+              },
+              blurOut: {
+                '0%': { opacity: '1', filter: 'blur(0)', transform: 'translateX(0)' },
+                '100%': { opacity: '0', filter: 'blur(10px)', transform: 'translateX(40px)' }
+              }
+            },
+            animation: {
+              // Designer's Note: The `both` value for animation-fill-mode is crucial.
+              // It applies the animation's starting styles (opacity: 0, transformed)
+              // *before* the animation begins, even during its delay. This eliminates the
+              // "glitch" where content flashes in its final position, ensuring a
+              // seamless, professional entrance.
+              'fade-in-down': 'fadeInDown 1.5s ease-out both',
+              'fade-in-up': 'fadeInUp 1.5s ease-out 0.7s both',
+              'blur-in': 'blurIn 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both',
+              'blur-out': 'blurOut 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) both'
+            }
+          }
+        }
+      }
+    </script>
+
+    <style>
+      /* Simple smooth scroll */
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^18.2.0/",
+    "react/": "https://aistudiocdn.com/react@^18.2.0/",
+    "react": "https://aistudiocdn.com/react@^18.2.0",
+    "vite": "https://aistudiocdn.com/vite@^7.2.4",
+    "@vitejs/plugin-react": "https://aistudiocdn.com/@vitejs/plugin-react@^5.1.1"
+  }
+}
+</script>
+</head>
+  <body class="bg-black">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
